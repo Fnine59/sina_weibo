@@ -1,1 +1,1 @@
-# sinaa_weibo
+# sina_weibo
