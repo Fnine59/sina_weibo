@@ -1,0 +1,262 @@
+@charset "utf-8";
+@import "less/css3.less";
+@import "less/z.less";
+@import "variables.less";
+
+.reset();
+
+body{
+	background: @body_background;
+}
+
+//头部header
+.header{
+	@h:48px;
+	@border: 2px;
+
+	
+	height: @h;
+	border-top: @border solid @link_hover;
+	background-color: #fff;
+
+	&_content{
+		.bc();//zless库中提供的方法用于居中
+		width: 1240px;
+		.clearfix();//zless库中提供的方法用于清除浮动使header_content有宽度和高度，因为它的子元素全部浮动了
+	}
+
+	.logo{
+		width: 80px;
+		height: 27px;
+		background: url(../img/logo.jpg) left top no-repeat;
+		.fl();//zless库中提供的方法用于左浮动
+		margin: 8px 30px 13px 0px;
+
+		a{
+			height: 100%;
+			display: block;
+			text-indent: -99em;
+		}
+	}
+
+	.search{//外层的search div做出了input框的样式，但是内层其实是两个input，一个放文字，一个放图片
+		@search_h: 30px;
+		@search_w: 458px;
+		@input_w: 429px;
+
+		.fl();
+		width: @search_w;
+		height: @search_h;
+		border: solid 1px @input_border;
+		background-color: #F2F2F5;
+		margin: (@h - @search_h - 2)/2 0;
+
+		&_input{
+			.fl();
+			width: @input_w - 18px;
+			height: 100%;
+			padding: 0 9px;
+			line-height: @search_h~"/9";
+			color: @input_font;
+			.font-s11();
+		}
+
+		&_btn{
+			width: 17px;
+			height: 16px;
+			background: url("../img/search.jpg") left top no-repeat;
+			margin-top: (@search_h - 2px - 17px)/2;
+			margin-right: 11px;
+			.fr();
+		}
+
+	}
+
+	&_nav{
+		@nav_w: 478px;
+		@nav_h: 24px;
+		.fr();
+		height: @nav_h;
+		margin: (@h - @nav_h)/2 0;
+		border-right: 1px solid @input_border;
+		li{
+			.fl();
+			margin-right: 26px;
+		}
+		.a_init{
+			.font-fm();//zless库中的函数，用于设置字体为微软雅黑
+			.font-s14();
+			height: @nav_h;
+			line-height: @nav_h~"/9";
+			color: @link_color;
+			padding-left: 25px;
+			.dib();//指明了display方式为inline-block
+			&:hover{
+				color: @link_hover;
+			}
+		}
+		.li_home{
+			.a_init;
+			background: url(../img/home.jpg) left top no-repeat;
+		}
+		.li_video{
+			.a_init;
+			background: url(../img/video.jpg) left top no-repeat;
+		}
+		.li_found{
+			.a_init;
+			background: url(../img/found.jpg) left top no-repeat;
+		}
+		.li_game{
+			.a_init;
+			background: url(../img/game.jpg) left top no-repeat;
+		}
+		.li_user{
+			.a_init;
+			background: url(../img/user.png) left top no-repeat;
+		}
+	}
+
+	&_operate{
+		@ope_w: 172px;
+		@ope_h: 24px;
+		.fr();
+		width: @ope_w;
+		height: @ope_h;
+		margin: (@h - @ope_h)/2 0;
+		.clearfix();
+		li{
+			.fl();
+		}
+		.a_init{
+			width: 19px;
+			.dib();
+			margin-left: 22px;
+			text-indent: -999em;
+		}
+		.li_1{
+			.a_init;
+			height: 16px;
+			margin-top: (@ope_h - 16px)/2;
+			background: url(../img/message.jpg) left top no-repeat;
+		}
+		.li_2{
+			.a_init;
+			height: 19px;
+			margin-top: (@ope_h - 19px)/2;
+			background: url(../img/settings.jpg) left top no-repeat;
+		}
+		.li_3{
+			.a_init;
+			width: 26px;
+			height: 24px;
+			margin-top: (@ope_h - 24px)/2;
+			background: url(../img/post.jpg) left top no-repeat;
+		}
+	}
+}
+
+//主体部分
+.main{
+	width: @main_width;
+	.bc();
+	.clearfix();
+	background-color: @main_background;
+	padding-top: @main_padding_top;
+}
+
+//除去右边左边的一大块内容
+.left{
+	width: @left_width;
+	.fl();
+
+	&_sidebar{
+		.fl();
+		width: @left_sidebar;
+	}
+
+	&_content{
+		.fl();
+		width: @left_width - @left_sidebar;
+	}
+}
+
+//页面左侧导航栏
+.nav{
+	.font-s13();
+	.font-fm();
+
+	&_common{
+		.d-b();
+		padding: 13px 0px 13px 15px;
+	}
+
+	a{
+		color: #FFF;
+		&:hover{
+			background: rgba(255,255,255,0.2);
+		}
+	}
+	
+	&_bold{
+		font-weight: bold;
+	}
+
+	&_line{
+		height: 1px;
+		background: rgba(255,255,255,0.1);
+		overflow: hidden;
+	}
+
+	&_normal{
+		.font-s11();
+		.font-fm();
+	}
+}
+
+//页面中间内容
+.left_content{
+	width: @left_width - @left_sidebar;
+}
+
+//新微博发布框
+.release{
+	@h: 165px;
+	height: @h;
+	background: @main_content_background;
+	.border-radius(3px);
+
+	&_top{
+		padding: 15px 11px 9px 11px;
+		.clearfix();
+	}
+
+	&_text{
+		width: 184px;
+		height: 16px;
+		background: url(../img/release_top.jpg) left center no-repeat;
+		text-indent: -99em;
+		.fl();
+	}
+
+	&_link{
+		height: 16px;
+		line-height: 16px;
+		.fr();
+	}
+	
+	a{
+		color: #EB7350;
+		.font-s11();
+		&:hover{
+			text-decoration: underline;
+		}
+	}
+}
+
+
+//页面右侧内容
+.right{
+	.fr();
+	width: @right_width;
+}
