@@ -219,7 +219,7 @@ body{
 	width: @left_width - @left_sidebar;
 }
 
-//新微博发布框
+//新微博发布框整体及头部
 .release{
 	@h: 165px;
 	height: @h;
@@ -250,6 +250,90 @@ body{
 		.font-s11();
 		&:hover{
 			text-decoration: underline;
+		}
+	}
+}
+
+//新微博编辑框
+.release_main{
+	height: 78px;
+	margin: 0px 10px;
+	border: 1px solid #CCC;
+	textarea{
+		width: 100%;
+		height: 78px;
+		.font-fm();
+		.font-s12();
+		padding: 5px 10px;
+	}
+}
+
+//微博发布框底部
+.release_choise{
+	height: 30px;
+	margin: 5px 10px 10px 10px;
+	.clearfix();
+	&_text{
+		margin-top: 4px;
+		.fl();
+	}
+
+	&_member{
+		.fl();
+		margin-right: 18px;
+	}
+	a{
+		.dib();
+		height: 22px; 
+		line-height: 22px;
+		color: @link_color;
+		padding-left: 25px;
+		&:hover{
+			color: @link_hover;
+		}
+	}
+
+	.btn_expre{
+		background: url(../img/expression.png) left center no-repeat;
+	}
+
+	.btn_img{
+		background: url(../img/picture.png) left center no-repeat;
+	}
+
+	.btn_video{
+		background: url(../img/video.png) left center no-repeat;
+	}
+
+	.btn_topic{
+		background: url(../img/topic.png) left center no-repeat;
+	}
+	
+	.btn_hot{
+		background: url(../img/head_hot.png) left center no-repeat;
+	}
+
+	.btn_more{
+		background: url(../img/others.png) left center no-repeat;
+	}
+
+	//发布按钮
+	.release_button{
+		.fr();
+		background: #FFC09F;
+		.border-radius(3px);
+		
+		.u_release_btn{
+			width: 82px;
+			height: 30px;
+			.font-s15();
+			.font-fm();
+			color: #FFF;
+
+			&:hover{
+				background: #FF6613;
+				.border-radius(3px);
+			}			
 		}
 	}
 }
