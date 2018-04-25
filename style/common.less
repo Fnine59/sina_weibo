@@ -338,6 +338,60 @@ body{
 	}
 }
 
+//页面中间部分的微博分类栏
+.classify{
+	@h: 38px;
+	height: @h;
+	background: #FFF;
+	margin-top: 10px;
+	.clearfix();
+
+	.classes{
+		.fl();
+		padding-left: 13px;
+	}
+
+	.class_text{
+		.fl();
+		height: @h;
+		margin-right: 27px;
+	}
+
+	.choosed{
+		background: url(../img/choose.png) center bottom no-repeat;
+		font-weight: bold;
+	}
+
+	a{
+		height: @h;
+		line-height: @h;
+		.font-s11();
+		.font-fm();
+		color: @link_color;
+		&:hover{
+			color: @link_hover;
+		}
+	}
+}
+
+//页面中间的微博搜索框
+.search{
+	@h: 26px;
+	@w: 178px;
+	width: @w;
+	height: @h - 2px;
+	border: 1px solid @input_border;
+	.fr();
+	margin: (38px - @h)/2;
+	input{
+		height: @h - 2px;
+		width: @w - 20px;
+		margin-left: 10px;
+		.font-s11();
+	}
+	
+}
+
 
 //页面右侧内容
 .right{
