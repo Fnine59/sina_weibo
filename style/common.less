@@ -156,6 +156,12 @@ body{
 	}
 }
 
+//所有卡片公用的
+.card{
+	background: @main_content_background;
+	.border-radius(@card_border_radius);
+}
+
 //主体部分
 .main{
 	width: @main_width;
@@ -223,8 +229,7 @@ body{
 .release{
 	@h: 165px;
 	height: @h;
-	background: @main_content_background;
-	.border-radius(3px);
+	.card;
 
 	&_top{
 		padding: 15px 11px 9px 11px;
@@ -344,6 +349,7 @@ body{
 	height: @h;
 	background: #FFF;
 	margin-top: 10px;
+	.card;
 	.clearfix();
 
 	.classes{
@@ -383,18 +389,438 @@ body{
 	border: 1px solid @input_border;
 	.fr();
 	margin: (38px - @h)/2;
-	input{
+	
+	&_text{
 		height: @h - 2px;
-		width: @w - 20px;
+		width: @w - 20px - 15px - 19px;
 		margin-left: 10px;
 		.font-s11();
 	}
-	
+
+	&_button{
+		width: 15px;
+		height: 14px;
+		background: url(../img/search_index.png) left center no-repeat;
+	}
+
+	&_more{
+		width: 9px;
+		height: 5px;
+		margin-left: 5px;
+		background: url(../img/search_arrow.png) left center no-repeat;
+	}
 }
 
+.weibo{
+	.card;
+	margin-top: 10px;
+	.clearfix();
+
+	&_icon{
+		.fl();
+		.dib();
+		margin: 20px 10px 20px 20px;
+	}
+
+	&_usericon{
+		width: 50px;
+		height: 50px;
+		.border-radius(50%);
+	}
+
+	&_text{
+		.fl();
+		.dib();
+		width: 520px - 20px;
+		margin-top: 25px;
+	}
+
+	h3{
+		.font-s14();
+		.font-fm();
+	}
+
+	&_time{
+		.font-s11();
+		.font-fm();
+		color: @context;
+		margin: 5px 0px;
+	}
+
+	&_content{
+		.font-s14();
+		.font-fm();
+	}
+}
+
+//每条微博的转发评论等
+.weibo_operator{
+	@h: 38px;
+	@w: 600px;
+	.fl();
+	width: @w;
+	height: @h;
+	margin-top: 11px;
+
+	.weibo_button{
+		width: @w;
+		height: @h;
+		.clearfix();
+		border-top: solid 1px #EEE;
+		overflow: hidden;
+	}
+
+	li{
+		width: 149px;
+		.fl();
+		height: 22px;
+		line-height: 22px;
+		margin: (@h - 22px)/2 0px;
+		border-right: 1px solid @input_border;
+		.tc();
+	}
+
+	a{
+		height: 12px;
+		line-height: 12px;
+		.font-s12();
+		.font-fm();
+		color: @link_color;
+		&:hover{
+			color: @link_hover;
+		}
+	}
+
+	.last{
+		border-right: none;
+	}
+
+	.repost{
+		background: url(../img/repost.png) left center no-repeat;
+		padding-left: 20px;
+	}
+
+	.review{
+		background: url(../img/review.png) left center no-repeat;
+		padding-left: 20px;
+	}
+
+	.good{
+		background: url(../img/good.png) left center no-repeat;
+		padding-left: 20px;
+	}
+}
+
+
+//查看更多微博
+.readmore{
+	@h: 38px;
+	@w: 600px;
+	background: @main_content_background;
+	margin: 10px 0px;
+	height: @h;
+	.card;
+	.clearfix();
+
+	a{
+		.fl();
+		height: 12px;
+		line-height: 12px;
+		.font-s12();
+		.tc();
+		margin: (@h - 12px)/2 0px;
+		width: @w;
+		color: @link_color;
+		&:hover{
+			color: @link_hover;
+		}
+	}
+}
 
 //页面右侧内容
 .right{
 	.fr();
 	width: @right_width;
+	padding-right: 10px;
+}
+
+//用户信息标签卡
+.usercard{
+	@w: 230px;
+	@h: 165px;
+	width: @w;
+	height: @h;
+	.card;
+	overflow: hidden;
+	.tc();
+	.clearfix();
+	
+	.background{
+		height: 75px;
+		width: @w;
+	}
+	.user_info_icon{
+		width: 60px;
+		height: 60px;
+		.border-radius(50%);
+		border: 4px solid rgba(255,255,255,0.4);
+		.dib();
+		margin-top: -56px;
+	}
+
+	.userinfo{
+		width: @w - 16px * 2;
+		margin: 0px 16px;
+		.clearfix();
+	}
+
+	h3{
+		.font-s14();
+		.font-fm();
+		margin-top: -3px;
+		margin-bottom: 6px;
+	}
+
+	li{
+		width: 65px;
+		border-right: 1px solid @input_border;
+		.fl();
+		height: 38px;
+	}
+
+	a{
+		.font-s12();
+		.font-fm();
+		width: 35px;
+		.dib();
+		height: 38px;
+		.tc();
+		color: @context;
+		&:hover{
+			color: @link_hover;
+		}
+	}
+
+	.last_a{
+		width: 55px;
+		.tc();
+	}
+
+	strong{
+		.font-s16();
+		.font-fm();
+		color: #000;
+	}
+
+	.last{
+		border-right: none;
+	}
+}
+
+//歌曲榜单
+.songlist{
+	@h: 257px;
+	@w: 230px;
+	width: @w;
+	height: @h;
+	.card;
+	margin-top: 10px;
+
+	&_head{
+		height: 38px - 13px - 13px;
+		padding: 13px 16px;
+		border-bottom: 1px solid @song_list_border;
+		.clearfix();
+
+		h4{
+			.font-s12();
+			.font-fm();
+			.dib();
+			.fl();
+		}
+		span{
+			.font-s11();
+			.font-fm();
+			.fr();
+			background: url(../img/change.png) left center no-repeat;
+			padding-left: 19px;
+		}
+	}
+}
+
+.list{
+	margin-top: 6px;
+	padding: 0px 6px;
+	border-bottom: 1px solid @input_border;
+
+
+	//第一首歌曲
+	.first{
+		.clearfix();
+	}
+
+	li{
+		border-bottom: 1px solid @song_list_border;
+	}
+
+	.songimg{
+		width: 72px;
+		height: 72px;
+		.fl();
+		margin-right: 5px;
+		margin-bottom: 6px;
+	}
+	
+	.list_content{
+		.fl();
+		.dib();
+		
+		h4{
+			.font-s12();
+			.font-fm();
+			color: @song_name;
+			background: url(../img/firstsong.png) left center no-repeat;
+			padding-left: 19px;
+			margin-bottom: 7px;
+		}
+
+		p{
+			.font-s11();
+			.font-fm();
+			color: @context;
+			margin-bottom: 6px;
+		}
+	}
+
+	//后两首歌曲
+	.songlist_other{
+		height: 48px - 9px * 2;
+		line-height: 48px - 9px * 2;
+		.clearfix();
+		padding: 9px 10px;
+		span{
+			.font-s12();
+			.font-fm();
+			.fl();
+			background: url(../img/secondsong.png) left center no-repeat;
+			padding-left: 21px;
+		}
+
+		img{
+			width: 30px;
+			height: 30px;
+			.fr();
+		}
+
+		.thirdspan{
+			background: url(../img/thirdsong.png) left center no-repeat;
+		}
+	}
+
+	.last{
+		border-bottom: none;
+	}
+}
+
+.foot{
+	@h: 35px;
+	height: @h;
+	.tc();
+	a{
+		height: @h;
+		line-height: @h;
+		color: #000;
+		.font-s12();
+		.font-fm();
+		background: url(../img/right_arrow.png) right center no-repeat;
+		padding-right: 12px;
+		&:hover{
+			color: @link_hover;
+		}
+	}
+}
+
+.hot{
+	@h: 322px;
+	@w: 230px;
+	width: @w;
+	height: @h;
+	.card;
+	margin-top: 10px;
+
+
+	&_head{
+		height: 38px - 13px - 13px;
+		padding: 13px 16px;
+		border-bottom: 1px solid @song_list_border;
+		.clearfix();
+
+		h4{
+			.font-s12();
+			.font-fm();
+			.dib();
+			.fl();
+		}
+		span{
+			.font-s11();
+			.font-fm();
+			.fr();
+			background: url(../img/change.png) left center no-repeat;
+			padding-left: 19px;
+		}
+	}
+
+	&_content{
+		margin-top: 2px;
+		padding: 19px 15px;
+		border-bottom: 1px solid @input_border;
+	}
+
+	li{
+		height: 11px;
+		line-height: 11px;
+		.clearfix();
+		margin-bottom: 17px;
+	}
+
+	.hot_content_a{
+		height: 11px;
+		line-height: 11px;
+		.font-s11();
+		.font-fm();
+		.fl();
+		color: @link_color;
+		&:hover{
+			color: @link_hover;
+		}
+	}
+
+	span{
+		.font-s11();
+		.font-fm();
+		.fr();
+	}
+
+	.last_li{
+		margin-bottom: 0px;
+	}
+}
+
+.hot_foot{
+	@h: 35px;
+	height: @h;
+	.tc();
+	text-align: center;
+	.hot_foot_a{
+		height: @h;
+		line-height: @h;
+		color: #000;
+		.font-s12();
+		.font-fm();
+		background: url(../img/right_arrow.png) right center no-repeat;
+		padding-right: 12px;
+		&:hover{
+			color: @link_hover;
+		}
+	}
 }
